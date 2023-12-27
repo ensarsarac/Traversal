@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AJAX Tur İşlemleri</h1>
+<hr />
+<button id="citylist" type="button" class="btn btn-primary">Tur Listesi</button>
+<button id="getcitybyid" type="button" class="btn btn-info">Tur Getir</button>
+<button id="destinationadd" type="button" class="btn btn-warning">Tur Ekle</button>
+<button id="removewithid" type="button" class="btn btn-danger">Tur Sil</button>
+<button id="updatedestination" type="button" class="btn btn-primary">Tur Güncelle</button>
+<hr />
+<div id="list" class="mt-3"><h3>Buraya Tur bilgileri gelicek.</h3></div>
+
+
+<hr />
+<div class="my-4">
+    <h3>ID ile Tur Arama</h3>
+    <input type="text" placeholder="Aradığınız şehrin id numarasını giriniz" id="idinput" class="form-control" />
+    <div id="errorMessage"></div>
+</div>
+
+<hr />
+<div class="my-4">
+    <h3>Tur Ekle</h3>
+    <div class="form-group">
+        <label class="form-label">Şehir</label>
+        <input type="text" placeholder="Şehir Adı" id="city" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Gün/Gece</label>
+        <input type="text" placeholder="Kaç gün kaç gece" id="daynight" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Fiyat</label>
+        <input type="text" placeholder="Fiyat" id="price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Kapasite</label>
+        <input type="text" placeholder="Kaç kişilik" id="capacity" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Açıklama</label>
+        <input type="text" placeholder="Şehir hakkında açıklama" id="description" class="form-control" />
+    </div>
+
+    <div id="errorMessage2"></div>
+</div>
+<hr />
+
+<div class="my-4">
+    <h3>ID ile Tur Sil</h3>
+    <input type="text" placeholder="Sileceğiniz turun id numarasını giriniz" id="removeid" class="form-control" />
+    <div id="errorMessage3"></div>
+</div>
+<hr />
+<div class="my-4">
+    <h3>ID ile Tur Güncelle</h3>
+    <input type="text" placeholder="Güncelleyeceğiniz turun id numarasını giriniz" id="desid" class="form-control" /><br />
+    <input type="text" placeholder="Güncelleyeceğiniz turun şehir adını giriniz" id="descity" class="form-control" /><br />
+    <input type="text" placeholder="Güncelleyeceğiniz turun gün gece bilgisini giriniz" id="desday" class="form-control" />
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+      $("#citylist").click(function () {
+                console.log("1");
+                $.ajax({
+                    contentType: "application/json",
+                    dataType: "json",
+                    type: "Get",
+                    url: "/Admin/DestinationAjax/GetList/",
+                    success: function (func) {
+                        let w = jQuery.parseJSON(func);
+                        let table = "<table class='table table-bordered'>  <tr><th>#</th> <th> Şehir </th>  <th> Gün / Gece </th> <th> Fiyat </th> <th> Kapasite </th> </tr>  ";
+                        $.each(w, (index, value) => {
+                            table += `<tr> <td>${value.DestinationId}</td> <td> ${value.City} </td><td> ${value.DayNight} </td> <td> ${value.Price} </td> <td> ${value.Capacity} </td></tr>`;
+                        });
+                        table += "</table>";
+                        $("#list").html(table);
+
+                    }
+                });
+            });
+
+            $("#getcitybyid").click(x => {
+                var idvalue = $("#idinput").val();
+                $.ajax({
+                    contentType: "application/json",
+                    dataType: "json",
+                    type: "Get",
+                    url: "/Admin/DestinationAjax/GetById/",
+                    data: { id: idvalue },
+                    success: function (func2) {
+                        if (func2 == "null") {
+
+                            let htmlstr = "<h4 class='text-danger'> Aradığınız id'de Tur yoktur.";
+                            $("#errorMessage").html(htmlstr);
+
+                        } else {
+                            console.log(func2);
+                            let w = jQuery.parseJSON(func2);
+                            let table = `<table class='table table-bordered'>  <tr> <th> Şehir </th>  <th> Gün / Gece </th> <th> Fiyat </th> <th> Kapasite </th> </tr>  <tr><td>${w.City}</td> <td>${w.DayNight}</td> <td>${w.Price}</td> <td>${w.Capacity}</td>  </tr>`;
+                            $("#list").html(table);
+                        }
+
+                    },
+
+                });
+            });
+
+            $("#destinationadd").click(function () {
+                console.log("1");
+                let values = {
+                    City: $("#city").val(),
+                    DayNight: $("#daynight").val(),
+                    Price: $("#price").val(),
+                    Capacity: $("#capacity").val(),
+                    Description: $("#description").val()
+                };
+                console.log(values);
+
+                $.ajax({
+
+                    type: "post",
+                    url: "/Admin/DestinationAjax/AddDestination/",
+                    data: values,
+                    success: function (func) {
+                        let result = jQuery.parseJSON(func);
+                        console.log(result);
+                        alert("Kayıt başarıyla eklendi");
+                    }
+                });
+
+
+            });
+
+            $("#removewithid").click(function () {
+
+                let idvalue = $("#removeid").val();
+                $.ajax({
+
+                    contentType: "application/json",
+                    dataType: "json",
+                    type: "get",
+                    url: "/Admin/DestinationAjax/RemoveDestination/",
+                    data: { id: idvalue },
+                    success: function (func2) {
+                        if (func2 == "null") {
+
+                            let htmlstr = "<h4 class='text-danger'> Silenecek bir tur bulunamadı.";
+                            $("#errorMessage3").html(htmlstr);
+
+                        } else {
+                            console.log(func2);
+                            let w = jQuery.parseJSON(func2);
+                            alert("Kayıt Başarıyla Silindi.");
+                        }
+
+                    },
+
+                });
+
+            });
+
+            $("#updatedestination").click(function () {
+
+                var values = {
+                    DestinationId: $("#desid").val(),
+                    City: $("#descity").val(),
+                    DayNight: $("#desday").val(),
+
+                };
+
+                $.ajax({
+
+                    contentType: "application/json",
+                    dataType: "json",
+                    type:"get",
+                    url: "/Admin/DestinationAjax/UpdateDestination/",
+                    data: values,
+                    success: function (func) {
+                        let w = jQuery.parseJSON(func);
+                        alert("Kayıt Başarıyla Güncellendi.");
+                    }
+                });
+
+
+            });
+
+</script>

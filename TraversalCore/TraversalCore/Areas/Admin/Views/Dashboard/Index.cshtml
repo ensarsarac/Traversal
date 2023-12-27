@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    
+
+    <script src="~/sneat-1.0.0/assets/js/config.js"></script>
+
+<div class="container p-0">
+    <div class="row">
+        @await Component.InvokeAsync("_DashboardBanner")
+        @await Component.InvokeAsync("_Card1Statistic")
+
+        <!-- Total Revenue -->
+        @await Component.InvokeAsync("_TotalRevenue")
+
+        <!--/ Total Revenue -->
+        @await Component.InvokeAsync("_Card2Statistic")
+
+    </div>
+    <div class="row">
+        <!-- Order Statistics -->
+        @await Component.InvokeAsync("_DestinationStatistic")
+        <!--/ Order Statistics -->
+        <!-- Expense Overview -->
+        @await Component.InvokeAsync("_DestinationStatistic2")
+
+        <!--/ Expense Overview -->
+        <!-- Transactions -->
+        @await Component.InvokeAsync("_GuideList")
+
+
+    </div>
+</div>
+
+
+<script src="~/sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<script src="~/sneat-1.0.0/assets/js/dashboards-analytics.js"></script>
+

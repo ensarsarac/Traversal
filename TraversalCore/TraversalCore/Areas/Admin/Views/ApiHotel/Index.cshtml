@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ApiHotelViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Otel Listesi</h1>
+<hr />
+
+<hr />
+<h3>Arama Yapılan Şehir: Paris/Fransa</h3>
+
+    <table class="table table-striped">
+
+        <tr>
+            <th>#</th>
+            <th>Otel Adı</th>
+            <th>Otel Puanı</th>
+            <th>Otel Değerlendirmesi</th>
+            <th>Otel Detaylar</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@item.name</td>
+                <td>@item.reviewScore</td>
+                @if (item.reviewScoreWord.Equals("Very good"))
+                {
+
+                    <td>Çok İyi</td>
+                }
+                else if (item.reviewScoreWord.Equals("Good"))
+                {
+                    <td>İyi</td>
+                }
+                else if (item.reviewScoreWord.Equals("Superb"))
+                {
+                    <td>Mükemmel</td>
+                }
+                else if (item.reviewScoreWord.Equals("Fabulous"))
+                {
+
+
+                    <td>Efsane</td>
+                }
+                else
+                {
+                    <td>@item.reviewScoreWord</td>
+                }
+
+                <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
+            </tr>
+            count++;
+        }
+
+
+    </table>
+
+

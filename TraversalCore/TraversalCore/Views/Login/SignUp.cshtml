@@ -1,0 +1,137 @@
+﻿@using DTOLayer.AppUserDTOs
+@model AppUserRegisterDTO
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Kayıt Sayfası</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+</head>
+
+<body>
+    <!-- /login-section -->
+    <section class="w3l-login-6">
+        <div class="login-hny">
+            <div class="form-content">
+                <div class="form-right">
+                    <div class="overlay">
+                        <div class="grid-info-form">
+                            <h5>Traversal Rezervasyon </h5>
+                            <h3>HESAP OLUŞTURUN </h3>
+                            <p>
+                                Birbirinden deneyimli rehberlerimiz eşliğinde İskandinav ülkelerinin soğuğunu, Akdeniz ülkelerinin sıcaklığını, güzel ülkemizin Kapadokya'dan  Sürmene'ye, Ölüdeniz'den Asos'a, Balkan Turundan Mısır Çöllerine kadar aklınıza gelen her yere bir tık uzaktayız. Seyahatlerimize katılmak için hemen kayıt olun.
+                            </p>
+                            <a href="index.html" class="read-more-1 btn">Hadi Başlayalım</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="middle">
+                        <h4>Bize Katılın</h4>
+                        <p>Hemen ücretsiz hesap oluştur</p>
+                    </div>
+
+
+
+
+                    @using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+                    {
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Adınız</label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Name,"",new {@class="text-danger" })
+                        </div>
+                        <br />
+
+                        <div class="form-input">
+                            <label class="form-label">Soyadınız</label>
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Surname, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Kullanıcı Adınız</label>
+                            @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Username, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Mail</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Telefon Numaranız</label>
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Şifre</label>
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div class="form-input">
+                            <label class="form-label">Şifre Tekrar</label>
+                            @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <label class="container">
+                            Şartları okudum <a href="#">kabul ediyorum</a>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="read-more-1 btn" type="submit">Hesap Oluşturun</button>
+
+                    }
+
+
+
+
+
+
+                    <div class="copy-right text-center">
+                        <p>
+                            © @DateTime.Now.Year Tüm hakları saklıdır
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- //login-section -->
+</body>
+
+</html>

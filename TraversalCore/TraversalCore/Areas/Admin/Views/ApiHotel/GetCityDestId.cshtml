@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ApiHotelLocationViewModel.Result>
+@{
+    ViewData["Title"] = "GetCityDestId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Oteller İçin Şehir ID Bilgisi</h1>
+<br />
+<form method="post">
+    <label>Şehir Adını Giriniz:</label>
+    <input type="text" class="form-control" name="p" />
+    <br />
+    <button id="btnClick" class="btn btn-primary">Şehir ID Getir</button>
+</form>

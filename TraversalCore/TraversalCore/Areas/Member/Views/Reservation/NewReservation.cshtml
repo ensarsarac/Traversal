@@ -1,0 +1,100 @@
+﻿@model EntityLayer.Concrete.Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Reservasyon Oluştur</h1>
+
+<form method="post">
+
+    <div class="form-group">
+        <label class="form-label">Şehir</label>
+        <select class="form-control" asp-for="DestinationId" asp-items="@ViewBag.v1"></select>
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-label">Kişi Sayısı</label>
+        <input type="text" asp-for="PersonCount" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Tarih</label>
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Eklemek İstediğiniz Şey Var Mı?</label>
+        <textarea type="date" asp-for="Description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Rezervasyon Oluştur</button>
+
+</form>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    #my-popup {
+        background-color: aliceblue;
+        color: black;
+        width: 500px;
+        padding: 30px 40px;
+        border-radius: 10px;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        display: none;
+        font-family:"Poppins", sans-serif;
+    }
+    #my-popup #close{
+        display:block;
+        cursor:pointer;
+        float:right;
+        background-color:transparent;
+        border:none;
+    }
+    .clearfix{
+        clear:both;
+        content:"";
+    }
+    body{
+        
+    }
+    
+
+</style>
+<div id="my-popup">
+    <button id="close">&times;</button>
+    <div class="clearfix"></div>
+    <div class="my-3"><h3>Bilgilendirme</h3>   </div>
+
+    <div>Rezervasyonunuz onay bekliyor.</div>
+    <div>Rezervasyon onaylanma süreci ile ilgili lütfen</div>
+    <div>güncel rezervasyonlar menüsü üzerinden rez. durumunu takip ediniz.</div>
+    <div><a href="#" id="close2" class="btn btn-primary my-2">Anladım</a></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/simondmc/popup-js@1.4.2/popup.min.js"></script>
+<script>
+    //Rezervasyonunuz onay bekliyor. Rezervasyon onaylanma süreci ile ilgili lütfen güncel rezervasyonlar menüsü üzerinden rez. durumunu takip ediniz.
+    
+    window.addEventListener("load", function () {
+        setTimeout(function open(event) {
+            document.querySelector('#my-popup').style.display = "block";
+        },1000)
+    });
+
+    document.querySelector("#close").addEventListener("click", function () {
+        document.querySelector('#my-popup').style.display = "none";
+    });
+
+    document.querySelector("#close2").addEventListener("click", function () {
+        document.querySelector('#my-popup').style.display = "none";
+    });
+
+    
+
+</script>

@@ -1,0 +1,24 @@
+﻿@using DTOLayer.AnnouncementDTOs
+@model AnnouncementAdd
+
+
+@{
+    ViewData["Title"] = "AddAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Duyuru Ekle</h1>
+
+@using (Html.BeginForm("AddAnnouncement", "Announcement", FormMethod.Post)) { 
+
+    @Html.LabelFor(x => x.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title,"", new {@class="text-danger"} )
+<br />
+    @Html.LabelFor(x => x.Content)
+    @Html.TextBoxFor(x => x.Content, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Content,"", new { @class = "text-danger" })
+<br />
+<button type="submit" class="btn btn-primary">Duyuru Ekle</button>
+}
+

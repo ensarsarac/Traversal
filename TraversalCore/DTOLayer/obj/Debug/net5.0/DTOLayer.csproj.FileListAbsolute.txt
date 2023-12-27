@@ -1,0 +1,12 @@
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\bin\Debug\net5.0\DTOLayer.deps.json
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\bin\Debug\net5.0\DTOLayer.dll
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\bin\Debug\net5.0\DTOLayer.pdb
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.csproj.AssemblyReference.cache
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.AssemblyInfoInputs.cache
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.AssemblyInfo.cs
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.csproj.CoreCompileInputs.cache
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.dll
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\ref\DTOLayer.dll
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\obj\Debug\net5.0\DTOLayer.pdb
+D:\Belgeler\source\repos\TraversalCore\DTOLayer\bin\Debug\net5.0\ref\DTOLayer.dll

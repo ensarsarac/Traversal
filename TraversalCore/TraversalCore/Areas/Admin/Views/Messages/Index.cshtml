@@ -1,0 +1,37 @@
+﻿@model List<WriteUs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Gelen Mesajlar</h1>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Mail</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Detaylar</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.Subject</td>
+    <td>@item.Date.ToString("dd-MM-yyyy")</td>
+    <td><a href="/Admin/Messages/Delete/@item.Id/" class="btn btn-outline-danger">Sil</a></td>
+    <td><a href="/Admin/Messages/Details/@item.Id/" class="btn btn-outline-primary">Mesajı Aç</a></td>
+</tr>
+    }
+
+
+
+</table>

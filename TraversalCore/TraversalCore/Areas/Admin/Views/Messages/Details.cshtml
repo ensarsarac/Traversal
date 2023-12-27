@@ -1,0 +1,19 @@
+﻿@model WriteUs
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Mesaj Detayları</h1>
+
+<table class="table table-bordered">
+
+    <tr><th>Ad</th><td>@Model.Name</td></tr>
+    <tr><th>Mail</th><td>@Model.Email</td></tr>
+    <tr><th>Konu</th><td>@Model.Subject</td></tr>
+    <tr><th>İçerik</th><td>@Model.Details</td></tr>
+
+</table>
+<a href="/Admin/Messages/" class="btn btn-outline-warning">Geri Dön</a>
+
+<a href="/Admin/Mail/" class="btn btn-outline-primary">Cevap Ver</a>

@@ -1,0 +1,22 @@
+﻿
+@model List<RoleViewModel>
+
+@{
+    ViewData["Title"] = "UserGetRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Roller</h1>
+<hr />
+
+<form method="post">
+
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        <div class="form-group">
+            <label>@Model[i].Name</label>
+            <input type="checkbox" asp-for="@Model[i].Status" />
+        </div>
+    }
+
+</form>

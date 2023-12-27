@@ -1,0 +1,28 @@
+﻿
+@model List<DTOLayer.DestinatonDTOs.DestinationListViewModel>
+
+@{
+    ViewData["Title"] = "Index2";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>DTO katmanından gelen rotalar</h1>
+<hr />
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Şehir</th>
+        <th>Gün/Gece</th>
+        <th>Fiyat</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DestinationId</td>
+            <td>@item.City</td>
+            <td>@item.DayNight</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+</table>

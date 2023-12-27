@@ -1,0 +1,52 @@
+﻿
+@model TraversalCore.Areas.Member.Models.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+    <h3>Profil Düzenleme Sayfası</h3>
+
+    <div class="form-group">
+        <label class="form-label">Adınız: </label>
+        <input class="form-control" asp-for="name" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Soyadınız: </label>
+        <input class="form-control" asp-for="surname" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Mail Adresiniz: </label>
+        <input class="form-control" asp-for="email" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Telefon Numaranız: </label>
+        <input class="form-control" asp-for="phonenumber" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Şifreniz: </label>
+        <input class="form-control" asp-for="password" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Şifre Tekrar: </label>
+        <input class="form-control" asp-for="confirmpassword" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Image: </label>
+        <input class="form-control" type="file" asp-for="imageurl" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+
+</form>

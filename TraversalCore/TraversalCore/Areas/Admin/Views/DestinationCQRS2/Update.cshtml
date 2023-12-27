@@ -1,0 +1,35 @@
+﻿
+@model GetByIdDestinationResult
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.DestinationId"/>
+    <div class="form-group">
+        <label class="form-label">Şehir</label>
+        <input type="text" class="form-control" asp-for="@Model.City" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Gün / Gece</label>
+        <input type="text" class="form-control" asp-for="@Model.DayNight" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Fiyat</label>
+        <input type="text" class="form-control" asp-for="@Model.Price" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-label">Kapasite</label>
+        <input type="text" class="form-control" asp-for="@Model.Capacity" />
+    </div>
+
+    <button type="submit" class="mt-3 btn btn-primary">Güncelle</button>
+
+</form>
+
