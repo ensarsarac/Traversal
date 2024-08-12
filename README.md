@@ -95,7 +95,6 @@
     <li>AutoMapper</li>
   </ul>
 
-
 ![Ekran görüntüsü 2023-12-27 135141](https://github.com/ensarsarac/Traversal/assets/76907308/283770b9-20d3-4235-9feb-418331f81980)
 ![Ekran görüntüsü 2023-12-27 135040](https://github.com/ensarsarac/Traversal/assets/76907308/0b417d06-57e1-4f31-b520-5bacf58265ef)
 ![Ekran görüntüsü 2023-12-27 134958](https://github.com/ensarsarac/Traversal/assets/76907308/024e794f-b910-4af7-b6e2-326ec2308503)
